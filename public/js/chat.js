@@ -84,7 +84,7 @@
 
 		// Append to chat box and scroll to latest message
 		appendAndScroll(receivedMessage);
-	
+
 
 	});
 
@@ -183,8 +183,8 @@
 	// to latest notification
 	function appendAndScroll(html) {
 		chatBox.append(html);
-	
-		$('#chat').animate({scrollTop: $('#chat')[0].scrollHeight},1000)
+
+		$('#chat').animate({ scrollTop: $('#chat')[0].scrollHeight }, 1000)
 		// Plays sound if its not already playing
 		chatSound.play();
 	}
@@ -204,18 +204,25 @@
 	// Populate/Update users list
 	function updateUsers(nicknames) {
 
-		var users = '<ul class="list-group">';
+		// var users = '<ul class="list-group">';
+		$('.online-users').empty()
 
 		for (var i = 0; i < nicknames.length; i++) {
-
-			users += '<li class="list-group-item bg-transparent border-0 text-white"><img style="width:40px;" src="https://i.pinimg.com/736x/2d/1c/c2/2d1cc2c80acb545d5b7995ae7ba4443f.jpg" alt="">' + nicknames[i] + '</li>';
+			if (nicknames[i] == name) {
+				$('.online-users').prepend('<li class="list-group-item bg-transparent border-0 text-white"><img style="width:40px;" src="https://i.pinimg.com/736x/2d/1c/c2/2d1cc2c80acb545d5b7995ae7ba4443f.jpg" alt="">' + nicknames[i] + ' - You</li>')
+			} else {
+				$('.online-users').append('<li class="list-group-item bg-transparent border-0 text-white"><img style="width:40px;" src="https://i.pinimg.com/736x/2d/1c/c2/2d1cc2c80acb545d5b7995ae7ba4443f.jpg" alt="">' + nicknames[i] + '</li>')
+			}
+			// users += '<li class="list-group-item bg-transparent border-0 text-white"><img style="width:40px;" src="https://i.pinimg.com/736x/2d/1c/c2/2d1cc2c80acb545d5b7995ae7ba4443f.jpg" alt="">' + nicknames[i] + '</li>';
 		}
 
-		users += '</ul>';
+		// users += '</ul>';
+
 
 		// Update users box
 		// usersBox.find('.modal-body').html(users);
-		$('.online-users').html(users);
+		// $('.online-users').html(users);
+
 
 		// Update 'Users Online' counter
 		usersOnlineCounter.text(nicknames.length);

@@ -94,6 +94,7 @@ io.sockets.on('connection', function (socket) {
 
 			// Notify existing users that someone left
 			socket.broadcast.emit('user left', nickname, nicknames);
+			console.log(nickname)
 		});
 
 		console.log('user disconnected!');
