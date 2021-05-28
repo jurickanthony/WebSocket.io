@@ -101,7 +101,7 @@ io.sockets.on('connection', function (socket) {
 });
 
 
-server.listen(port, function () { console.log("Server listening at http://localhost:" + port) });
+server.listen(process.env.PORT || port, function () { console.log("Server listening at http://localhost:" + port) });
 
 // ExpressJS routes using the 'get' verb
 app.get('/', handler);
