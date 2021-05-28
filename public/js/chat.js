@@ -84,7 +84,7 @@
 
 		// Append to chat box and scroll to latest message
 		appendAndScroll(receivedMessage);
-		
+	
 
 	});
 
@@ -183,8 +183,8 @@
 	// to latest notification
 	function appendAndScroll(html) {
 		chatBox.append(html);
-		chatBox.scrollTop(chatBox[0].scrollHeight);
-
+	
+		$('#chat').animate({scrollTop: $('#chat')[0].scrollHeight},1000)
 		// Plays sound if its not already playing
 		chatSound.play();
 	}
